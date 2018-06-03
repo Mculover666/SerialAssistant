@@ -1,0 +1,9 @@
+E:\C#\SerialAssistant\SerialAssistant\bin\Debug\SerialAssistant.exe
+E:\C#\SerialAssistant\SerialAssistant\bin\Debug\SerialAssistant.pdb
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.csprojResolveAssemblyReference.cache
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.Form1.resources
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.Properties.Resources.resources
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.csproj.GenerateResource.cache
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.csproj.CoreCompileInputs.cache
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.exe
+E:\C#\SerialAssistant\SerialAssistant\obj\Debug\SerialAssistant.pdb

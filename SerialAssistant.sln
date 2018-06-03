@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27428.2037
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SerialAssistant", "SerialAssistant\SerialAssistant.csproj", "{1B61FD7E-4867-4B6C-A149-764FD685DEBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1B61FD7E-4867-4B6C-A149-764FD685DEBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B61FD7E-4867-4B6C-A149-764FD685DEBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B61FD7E-4867-4B6C-A149-764FD685DEBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B61FD7E-4867-4B6C-A149-764FD685DEBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0E60CA44-5DBD-461E-A63D-D037F11B5FAB}
+	EndGlobalSection
+EndGlobal
