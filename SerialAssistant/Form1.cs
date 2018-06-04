@@ -18,7 +18,7 @@ namespace SerialAssistant
         }
         private void Form1_Load(object sender, EventArgs e)
         {
-            int i;
+             int i;
             //单个添加
             for (i = 300; i <= 38400; i = i*2)
             {
@@ -174,6 +174,11 @@ namespace SerialAssistant
                 MessageBox.Show(ex.Message);
           
             }
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
