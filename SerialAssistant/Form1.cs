@@ -108,6 +108,7 @@ namespace SerialAssistant
                     label6.Text = "串口已打开";
                     label6.ForeColor = Color.Green;
                     button2.Enabled = true;        //使能发送按钮
+                    checkBox2.Enabled = true;
 
                 }
             }
@@ -130,6 +131,7 @@ namespace SerialAssistant
                 comboBox3.Enabled = true;
                 comboBox4.Enabled = true;
                 comboBox5.Enabled = true;
+                checkBox2.Enabled = false;
             }
         }
 
@@ -216,6 +218,7 @@ namespace SerialAssistant
                 comboBox3.Enabled = true;
                 comboBox4.Enabled = true;
                 comboBox5.Enabled = true;
+                checkBox2.Enabled = false;
             }
         }
 

@@ -333,6 +333,7 @@
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Enabled = false;
             this.checkBox2.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBox2.Location = new System.Drawing.Point(13, 66);
             this.checkBox2.Name = "checkBox2";
@@ -369,22 +370,23 @@
             // panel4
             // 
             this.panel4.AutoScroll = true;
+            this.panel4.AutoSize = true;
             this.panel4.Controls.Add(this.textBox_receive);
             this.panel4.Location = new System.Drawing.Point(189, 13);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(436, 337);
+            this.panel4.Size = new System.Drawing.Size(439, 340);
             this.panel4.TabIndex = 3;
             // 
             // textBox_receive
             // 
             this.textBox_receive.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.textBox_receive.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.textBox_receive.Location = new System.Drawing.Point(1, 0);
+            this.textBox_receive.Location = new System.Drawing.Point(1, -1);
             this.textBox_receive.Multiline = true;
             this.textBox_receive.Name = "textBox_receive";
             this.textBox_receive.ReadOnly = true;
             this.textBox_receive.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox_receive.Size = new System.Drawing.Size(432, 337);
+            this.textBox_receive.Size = new System.Drawing.Size(435, 338);
             this.textBox_receive.TabIndex = 0;
             this.textBox_receive.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
@@ -413,6 +415,8 @@
             // 
             // textBox_send
             // 
+            this.textBox_send.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.textBox_send.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.textBox_send.Location = new System.Drawing.Point(-1, -2);
             this.textBox_send.Multiline = true;
@@ -428,9 +432,10 @@
             // label6
             // 
             this.label6.AutoSize = true;
+            this.label6.Dock = System.Windows.Forms.DockStyle.Left;
             this.label6.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label6.ForeColor = System.Drawing.Color.Red;
-            this.label6.Location = new System.Drawing.Point(3, 0);
+            this.label6.Location = new System.Drawing.Point(0, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 0;
@@ -458,26 +463,29 @@
             // 
             // panel6
             // 
+            this.panel6.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel6.Controls.Add(this.label9);
             this.panel6.Controls.Add(this.label7);
             this.panel6.Controls.Add(this.label8);
             this.panel6.Controls.Add(this.label6);
-            this.panel6.Location = new System.Drawing.Point(3, 461);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(0, 461);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(619, 25);
+            this.panel6.Size = new System.Drawing.Size(625, 25);
             this.panel6.TabIndex = 7;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Right;
             this.label9.Font = new System.Drawing.Font("微软雅黑", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.label9.ForeColor = System.Drawing.Color.SeaGreen;
-            this.label9.Location = new System.Drawing.Point(544, 0);
+            this.label9.Location = new System.Drawing.Point(548, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 21);
             this.label9.TabIndex = 3;
-            this.label9.Text = "@V1.1.0";
+            this.label9.Text = "@V1.2.0";
             // 
             // timer1
             // 
@@ -512,6 +520,7 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
