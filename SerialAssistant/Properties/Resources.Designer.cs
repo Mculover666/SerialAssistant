@@ -8,10 +8,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+
 namespace SerialAssistant.Properties
 {
-
-
     /// <summary>
     ///   强类型资源类，用于查找本地化字符串等。
     /// </summary>
@@ -52,8 +51,8 @@ namespace SerialAssistant.Properties
         }
 
         /// <summary>
-        ///   覆盖当前线程的 CurrentUICulture 属性
-        ///   使用此强类型的资源类的资源查找。
+        ///   重写当前线程的 CurrentUICulture 属性，对
+        ///   使用此强类型资源类的所有资源查找执行重写。
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
         internal static global::System.Globalization.CultureInfo Culture
