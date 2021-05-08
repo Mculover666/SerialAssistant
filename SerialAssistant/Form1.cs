@@ -24,19 +24,81 @@ namespace SerialAssistant
             InitializeComponent();
         }
 
+        private bool search_port_is_exist(String item, String[] port_list)
+        {
+            for (int i = 0; i < port_list.Length; i++)
+            {
+                if (port_list[i].Equals(item))
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         /* 扫描串口列表并添加到选择框 */
         private void Update_Serial_List()
         {
-            comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+            try
+            {
+                /* 搜索串口 */
+                String[] cur_port_list = System.IO.Ports.SerialPort.GetPortNames();
 
-            if (comboBox1.Items.Count > 0)
-            {
-                comboBox1.Text = comboBox1.Items[0].ToString();
+                /* 刷新串口列表comboBox */
+                int count = comboBox1.Items.Count;
+                if (count == 0)
+                {
+                    //combox中无内容，将当前串口列表全部加入
+                    comboBox1.Items.AddRange(cur_port_list);
+                    return;
+                }
+                else
+                {
+                    //combox中有内容
+
+                    //判断有无新插入的串口
+                    for (int i = 0; i < cur_port_list.Length; i++)
+                    {
+                        if (!comboBox1.Items.Contains(cur_port_list[i]))
+                        {
+                            //找到新插入串口，添加到combox中
+                            comboBox1.Items.Add(cur_port_list[i]);
+                        }
+                    }
+
+                    //判断有无拔掉的串口
+                    for (int i = 0; i < count; i++)
+                    {
+                        if (!search_port_is_exist(comboBox1.Items[i].ToString(), cur_port_list))
+                        {
+                            //找到已被拔掉的串口，从combox中移除
+                            comboBox1.Items.RemoveAt(i);
+                        }
+                    }
+                }
+
+                /* 如果当前选中项为空，则默认选择第一项 */
+                if (comboBox1.Items.Count > 0)
+                {
+                    if (comboBox1.Text.Equals(""))
+                    {
+                        //软件刚启动时，列表项的文本值为空
+                        comboBox1.Text = comboBox1.Items[0].ToString();
+                    }
+                }
+                else
+                {
+                    //无可用列表，清空文本值
+                    comboBox1.Text = "";
+                }
+                
+
             }
-            else
+            catch (Exception ex)
             {
-                comboBox1.Text = "";
+                //当下拉框被打开时，修改下拉框会发生异常
+                return;
             }
         }
         
@@ -68,10 +130,9 @@ namespace SerialAssistant
             comboBox4.Text = "None";
             comboBox5.Text = "1";
 
-            /* 在串口未打开的情况下每隔2s刷新一次串口列表框 */
-            timer1.Interval = 2000;
+            /* 在串口未打开的情况下每隔1s刷新一次串口列表框 */
+            timer1.Interval = 1000;
             timer1.Start();
-
         }
 
 
@@ -103,7 +164,7 @@ namespace SerialAssistant
                     
 
                     //开启端口扫描
-                    timer1.Interval = 2000;
+                    timer1.Interval = 1000;
                     timer1.Start();
                 }
                 else
@@ -172,7 +233,7 @@ namespace SerialAssistant
                 comboBox5.Enabled = true;
 
                 //开启串口扫描
-                timer1.Interval = 2000;
+                timer1.Interval = 1000;
                 timer1.Start();
             }
         }
