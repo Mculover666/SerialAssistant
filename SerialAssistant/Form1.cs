@@ -217,12 +217,9 @@ namespace SerialAssistant
             {
                 //捕获可能发生的异常并进行处理
 
-                //捕获到异常，创建一个新的对象，之前的不可以再用
-                serialPort1 = new System.IO.Ports.SerialPort();
-
-                //刷新COM口选项
-                comboBox1.Items.Clear();
-                comboBox1.Items.AddRange(System.IO.Ports.SerialPort.GetPortNames());
+                //捕获到异常，创建一个新的对象，之前的不可以再用  
+                serialPort1 = new System.IO.Ports.SerialPort(components);
+                serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(serialPort1_DataReceived);
 
                 //响铃并显示异常给用户
                 System.Media.SystemSounds.Beep.Play();
@@ -233,6 +230,10 @@ namespace SerialAssistant
                 comboBox3.Enabled = true;
                 comboBox4.Enabled = true;
                 comboBox5.Enabled = true;
+                label6.Text = "串口已关闭!";
+                label6.ForeColor = Color.Red;
+                button5.Enabled = false;        //失能发送按钮
+                checkBox4.Enabled = false;
 
                 //开启串口扫描
                 timer1.Interval = 1000;
