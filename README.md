@@ -1,5 +1,10 @@
 ﻿# SerialAssistant串口助手
 
+下载地址：
+
+- 本仓库release文件夹
+- [在线下载：http://mculover666.cn/SerialAssistant.zip](http://mculover666.cn/SerialAssistant.zip)
+
 # 功能说明
 
 本项目是使用C# + WinForm框架编写的串口助手。
@@ -31,6 +36,7 @@
 - [C#上位机开发（四）—— SerialAssistant功能完善](https://mculover666.blog.csdn.net/article/details/80650078)
 - [C#上位机开发（五）——SerialAssistant界面升级（WinForm界面布局进阶）](https://mculover666.blog.csdn.net/article/details/116483736)
 - [C#上位机开发（六）——SerialAssistant功能优化（串口自动扫描功能、接收数据保存功能、加载发送文件、发送历史记录、打开浏览器功能、定时发送功能）](https://mculover666.blog.csdn.net/article/details/116518368)
+- [C#上位机开发（七）—— 修改窗口图标和exe文件图标](https://mculover666.blog.csdn.net/article/details/116540638)
 
 # 更新日志
 
