@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace SerialAssistant
 {
@@ -307,6 +308,18 @@ namespace SerialAssistant
 
                     send_count += num;      //计数变量累加
                     label8.Text = "Tx:" + send_count.ToString() + "Bytes";   //刷新界面
+
+                    /* 记录发送数据 */
+                    //先检查当前是否存在该项
+                    if (comboBox7.Items.Contains(textBox2.Text) == true)
+                    {
+                        return;
+                    }
+                    else
+                    {
+                        comboBox7.Items.Add(textBox2.Text);
+                    }
+                    
                 }
             }
             catch (Exception ex)
@@ -327,6 +340,109 @@ namespace SerialAssistant
                 comboBox4.Enabled = true;
                 comboBox5.Enabled = true;
             }
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            DateTime time = new DateTime();
+            String fileName;
+
+            /* 获取当前接收区内容 */
+            String recv_data = textBox1.Text;
+
+            if (recv_data.Equals(""))
+            {
+                MessageBox.Show("接收数据为空，无需保存！");
+                return;
+            }
+
+            /* 获取当前时间，用于填充文件名 */
+            //eg.log_2021_05_08_10_13_31.txt
+            time = System.DateTime.Now;
+            fileName = "log" + "_" + time.ToString("yyyy_MM_dd_HH_mm_ss") + ".txt";
+
+            try
+            {
+                /* 保存串口接收区的内容 */
+                //创建 FileStream 类的实例
+                FileStream fileStream = new FileStream(fileName, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite);
+
+                //将字符串转换为字节数组
+                byte[] bytes = Encoding.UTF8.GetBytes(recv_data);
+
+                //向文件中写入字节数组
+                fileStream.Write(bytes, 0, bytes.Length);
+
+                //刷新缓冲区
+                fileStream.Flush();
+
+                //关闭流
+                fileStream.Close();
+
+                //提示用户
+                MessageBox.Show("日志已保存!(" + fileName + ")");
+            }
+            catch (Exception ex)
+            {
+                //提示用户
+                MessageBox.Show("发生异常!(" + ex.ToString() + ")");
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string file;
+
+            /* 弹出文件选择框供用户选择 */
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Multiselect = false;//该值确定是否可以选择多个文件
+            dialog.Title = "请选择要加载的文件(文本格式)";
+            dialog.Filter = "文本文件(*.txt)|*.txt|JSON文件(*.json)|*.json";
+            if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                file = dialog.FileName;
+            }
+            else
+            {
+                return;
+            }
+
+            /* 读取文件内容 */
+            try
+            {
+                //清空发送缓冲区
+                textBox2.Text = "";
+
+                // 使用 StreamReader 来读取文件
+                using (StreamReader sr = new StreamReader(file))
+                {
+                    string line;
+
+                    // 从文件读取并显示行，直到文件的末尾 
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        line = line + "\r\n";
+                        textBox2.AppendText(line);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("加载文件发生异常！(" + ex.ToString()+")");
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            //清空发送缓冲区
+            textBox2.Text = "";
+        }
+
+        private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //清空发送缓冲区
+            textBox2.Text = comboBox7.SelectedItem.ToString();
         }
     }
 }
