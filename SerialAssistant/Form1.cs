@@ -95,7 +95,7 @@ namespace SerialAssistant
 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //当下拉框被打开时，修改下拉框会发生异常
                 return;
