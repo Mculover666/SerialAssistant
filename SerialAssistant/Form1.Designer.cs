@@ -29,6 +29,7 @@ namespace SerialAssistant
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -69,6 +70,8 @@ namespace SerialAssistant
             this.panel7 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.serialPort1 = new System.IO.Ports.SerialPort(this.components);
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -110,6 +113,7 @@ namespace SerialAssistant
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("宋体", 9F);
+            this.label6.ForeColor = System.Drawing.Color.Green;
             this.label6.Location = new System.Drawing.Point(10, 3);
             this.label6.Margin = new System.Windows.Forms.Padding(3);
             this.label6.Name = "label6";
@@ -187,24 +191,26 @@ namespace SerialAssistant
             this.panel6.Controls.Add(this.comboBox6);
             this.panel6.Controls.Add(this.button3);
             this.panel6.Controls.Add(this.checkBox4);
+            this.panel6.Controls.Add(this.checkBox2);
             this.panel6.Controls.Add(this.radioButton4);
             this.panel6.Controls.Add(this.radioButton3);
-            this.panel6.Location = new System.Drawing.Point(12, 400);
+            this.panel6.Location = new System.Drawing.Point(12, 375);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(196, 89);
+            this.panel6.Size = new System.Drawing.Size(196, 114);
             this.panel6.TabIndex = 2;
             // 
             // comboBox6
             // 
             this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(128, 37);
+            this.comboBox6.Location = new System.Drawing.Point(130, 64);
             this.comboBox6.Name = "comboBox6";
             this.comboBox6.Size = new System.Drawing.Size(51, 20);
             this.comboBox6.TabIndex = 11;
+            this.comboBox6.Text = "1000";
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(21, 63);
+            this.button3.Location = new System.Drawing.Point(21, 88);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(160, 23);
             this.button3.TabIndex = 12;
@@ -215,11 +221,11 @@ namespace SerialAssistant
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Font = new System.Drawing.Font("宋体", 12F);
-            this.checkBox4.Location = new System.Drawing.Point(21, 37);
+            this.checkBox4.Location = new System.Drawing.Point(21, 62);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(91, 20);
             this.checkBox4.TabIndex = 5;
-            this.checkBox4.Text = "重复发送";
+            this.checkBox4.Text = "自动发送";
             this.checkBox4.UseVisualStyleBackColor = true;
             // 
             // radioButton4
@@ -236,6 +242,7 @@ namespace SerialAssistant
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
             this.radioButton3.Location = new System.Drawing.Point(21, 15);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(53, 16);
@@ -250,17 +257,16 @@ namespace SerialAssistant
             this.panel5.Controls.Add(this.button4);
             this.panel5.Controls.Add(this.button2);
             this.panel5.Controls.Add(this.checkBox3);
-            this.panel5.Controls.Add(this.checkBox2);
             this.panel5.Controls.Add(this.radioButton2);
             this.panel5.Controls.Add(this.radioButton1);
             this.panel5.Location = new System.Drawing.Point(12, 246);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(196, 148);
+            this.panel5.Size = new System.Drawing.Size(196, 123);
             this.panel5.TabIndex = 1;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(21, 119);
+            this.button4.Location = new System.Drawing.Point(21, 93);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(160, 23);
             this.button4.TabIndex = 12;
@@ -269,18 +275,19 @@ namespace SerialAssistant
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(21, 90);
+            this.button2.Location = new System.Drawing.Point(21, 64);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(160, 23);
             this.button2.TabIndex = 11;
             this.button2.Text = "清空接收";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("宋体", 12F);
-            this.checkBox3.Location = new System.Drawing.Point(21, 64);
+            this.checkBox3.Location = new System.Drawing.Point(21, 38);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(91, 20);
             this.checkBox3.TabIndex = 4;
@@ -291,11 +298,11 @@ namespace SerialAssistant
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("宋体", 12F);
-            this.checkBox2.Location = new System.Drawing.Point(21, 38);
+            this.checkBox2.Location = new System.Drawing.Point(21, 37);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(91, 20);
             this.checkBox2.TabIndex = 3;
-            this.checkBox2.Text = "显示发送";
+            this.checkBox2.Text = "发送新行";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // radioButton2
@@ -312,6 +319,7 @@ namespace SerialAssistant
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
             this.radioButton1.Location = new System.Drawing.Point(21, 16);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(53, 16);
@@ -347,9 +355,11 @@ namespace SerialAssistant
             this.button1.TabIndex = 10;
             this.button1.Text = "打开串口";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // comboBox5
             // 
+            this.comboBox5.CausesValidation = false;
             this.comboBox5.FormattingEnabled = true;
             this.comboBox5.Location = new System.Drawing.Point(81, 151);
             this.comboBox5.Name = "comboBox5";
@@ -358,6 +368,7 @@ namespace SerialAssistant
             // 
             // comboBox4
             // 
+            this.comboBox4.CausesValidation = false;
             this.comboBox4.FormattingEnabled = true;
             this.comboBox4.Location = new System.Drawing.Point(81, 118);
             this.comboBox4.Name = "comboBox4";
@@ -366,6 +377,7 @@ namespace SerialAssistant
             // 
             // comboBox3
             // 
+            this.comboBox3.CausesValidation = false;
             this.comboBox3.FormattingEnabled = true;
             this.comboBox3.Location = new System.Drawing.Point(81, 85);
             this.comboBox3.Name = "comboBox3";
@@ -374,6 +386,7 @@ namespace SerialAssistant
             // 
             // comboBox2
             // 
+            this.comboBox2.CausesValidation = false;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(81, 52);
             this.comboBox2.Name = "comboBox2";
@@ -382,6 +395,7 @@ namespace SerialAssistant
             // 
             // comboBox1
             // 
+            this.comboBox1.CausesValidation = false;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Location = new System.Drawing.Point(81, 19);
             this.comboBox1.Name = "comboBox1";
@@ -474,6 +488,7 @@ namespace SerialAssistant
             this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox1.Font = new System.Drawing.Font("宋体", 12F);
             this.textBox1.Location = new System.Drawing.Point(6, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -500,17 +515,27 @@ namespace SerialAssistant
             this.button5.TabIndex = 0;
             this.button5.Text = "发送";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // textBox2
             // 
             this.textBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBox2.Font = new System.Drawing.Font("宋体", 12F);
             this.textBox2.Location = new System.Drawing.Point(6, 6);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(351, 124);
             this.textBox2.TabIndex = 0;
+            // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // serialPort1
+            // 
+            this.serialPort1.DataReceived += new System.IO.Ports.SerialDataReceivedEventHandler(this.serialPort1_DataReceived);
             // 
             // Form1
             // 
@@ -593,6 +618,8 @@ namespace SerialAssistant
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Timer timer1;
+        private System.IO.Ports.SerialPort serialPort1;
     }
 }
 
