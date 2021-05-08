@@ -505,5 +505,49 @@ namespace SerialAssistant
             //清空发送缓冲区
             textBox2.Text = comboBox7.SelectedItem.ToString();
         }
+
+        private void panel10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            this.linkLabel1.Links[this.linkLabel1.Links.IndexOf(e.Link)].Visited = true;
+            string targetUrl = "https://github.com/Mculover666/SerialAssistant";
+
+
+            try
+            {
+                //尝试用edge打开
+                System.Diagnostics.Process.Start("msedge.exe", targetUrl);
+                return;
+            }
+            catch (Exception)
+            {
+                //edge它不香吗
+            }
+
+            try
+            {
+                //好吧，那用chorme
+                System.Diagnostics.Process.Start("chorme.exe", targetUrl);
+                return;
+            }
+            catch
+            {
+                //chorme不好用吗
+            }
+            try
+            {
+                //IE也不是不可以
+                System.Diagnostics.Process.Start("iexplore.exe", targetUrl);
+            }
+
+            catch
+            { 
+                //没救了，砸了吧！
+            }
+        }
     }
 }

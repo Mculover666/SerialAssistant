@@ -164,6 +164,7 @@ namespace SerialAssistant
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(141, 18);
             this.panel10.TabIndex = 3;
+            this.panel10.Click += new System.EventHandler(this.panel10_Click);
             // 
             // linkLabel1
             // 
@@ -175,6 +176,7 @@ namespace SerialAssistant
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
             this.linkLabel1.Text = "v2.0.0 @ Mculover666";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel2
             // 
