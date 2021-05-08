@@ -4,6 +4,20 @@
 
 本项目是使用C# + WinForm框架编写的串口助手。
 
+![](./doc/image/ui.png)
+
+目前版本为2.0.0版本，拥有以下功能：
+
+- 未打开串口时，自动扫描可用端口
+- 接收数据支持文本或者HEX方式显示
+- 支持接收数据加入时间戳
+- 支持将当前接收数据保存为文件
+- 支持发送文本数据或HEX数据
+- 支持自动定时发送数据
+- 支持从文件中(.txt, .json)加载数据到发送文本框
+- 支持发送数据记录(不重复记录)
+- ……欢迎加入更多功能
+
 # 环境说明
 
 - VS2019
@@ -16,6 +30,7 @@
 - [C#上位机开发（三）—— 构建SerialAssistant雏形](https://mculover666.blog.csdn.net/article/details/80650067)
 - [C#上位机开发（四）—— SerialAssistant功能完善](https://mculover666.blog.csdn.net/article/details/80650078)
 - [C#上位机开发（五）——SerialAssistant界面升级（WinForm界面布局进阶）](https://mculover666.blog.csdn.net/article/details/116483736)
+- [C#上位机开发（六）——SerialAssistant功能优化（串口自动扫描功能、接收数据保存功能、加载发送文件、发送历史记录、打开浏览器功能、定时发送功能）](https://mculover666.blog.csdn.net/article/details/116518368)
 
 # 更新日志
 
@@ -33,7 +48,7 @@
   
 1. 完善串口扩展功能后台搭建
 
-第四次更新 2021/5/7
+第四次更新 2021/5/8
 
 1. 改进UI界面，升级v2.0.0版本
-2. 逻辑待写
+2. 优化功能逻辑，升级v2.0.0版本
