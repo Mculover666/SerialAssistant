@@ -530,13 +530,13 @@ namespace SerialAssistant
 
             try
             {
-                //好吧，那用chorme
-                System.Diagnostics.Process.Start("chorme.exe", targetUrl);
+                //好吧，那用chrome
+                System.Diagnostics.Process.Start("chrome.exe", targetUrl);
                 return;
             }
             catch
             {
-                //chorme不好用吗
+                //chrome不好用吗
             }
             try
             {
