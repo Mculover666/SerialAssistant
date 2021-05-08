@@ -92,7 +92,7 @@ namespace SerialAssistant
                     //无可用列表，清空文本值
                     comboBox1.Text = "";
                 }
-                
+
 
             }
             catch (Exception ex)
@@ -101,7 +101,7 @@ namespace SerialAssistant
                 return;
             }
         }
-        
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -161,7 +161,8 @@ namespace SerialAssistant
                     label6.Text = "串口已关闭!";
                     label6.ForeColor = Color.Red;
                     button5.Enabled = false;        //失能发送按钮
-                    
+                    checkBox4.Enabled = false;
+
 
                     //开启端口扫描
                     timer1.Interval = 1000;
@@ -172,12 +173,13 @@ namespace SerialAssistant
                     /* 串口已经处于关闭状态，则设置好串口属性后打开 */
                     //停止串口扫描
                     timer1.Stop();
-                    
+
                     comboBox1.Enabled = false;
                     comboBox2.Enabled = false;
                     comboBox3.Enabled = false;
                     comboBox4.Enabled = false;
                     comboBox5.Enabled = false;
+                    checkBox4.Enabled = true;
                     serialPort1.PortName = comboBox1.Text;
                     serialPort1.BaudRate = Convert.ToInt32(comboBox2.Text);
                     serialPort1.DataBits = Convert.ToInt16(comboBox3.Text);
@@ -201,7 +203,7 @@ namespace SerialAssistant
                         serialPort1.StopBits = System.IO.Ports.StopBits.Two;
 
                     //打开串口，设置状态
-                    serialPort1.Open();    
+                    serialPort1.Open();
                     button1.Text = "关闭串口";
                     label6.Text = "串口已打开!";
                     label6.ForeColor = Color.Green;
@@ -274,7 +276,7 @@ namespace SerialAssistant
                     {
                         //显示时间
                         current_time = System.DateTime.Now;     //获取当前时间
-                        textBox1.AppendText("["+current_time.ToString("HH:mm:ss") + "]" + sb.ToString());
+                        textBox1.AppendText("[" + current_time.ToString("HH:mm:ss") + "]" + sb.ToString());
                     }
                     else
                     {
@@ -380,7 +382,7 @@ namespace SerialAssistant
                     {
                         comboBox7.Items.Add(textBox2.Text);
                     }
-                    
+
                 }
             }
             catch (Exception ex)
@@ -490,7 +492,7 @@ namespace SerialAssistant
             }
             catch (Exception ex)
             {
-                MessageBox.Show("加载文件发生异常！(" + ex.ToString()+")");
+                MessageBox.Show("加载文件发生异常！(" + ex.ToString() + ")");
             }
         }
 
@@ -545,8 +547,30 @@ namespace SerialAssistant
             }
 
             catch
-            { 
+            {
                 //没救了，砸了吧！
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            button5_Click(button5, new EventArgs());    //调用发送按钮回调函数
+        }
+
+        private void checkBox4_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox4.Checked)
+            {
+                //自动发送功能选中,开始自动发送
+                numericUpDown1.Enabled = false;
+                timer2.Interval = (int)numericUpDown1.Value;
+                timer2.Start(); 
+            }
+            else
+            {
+                //自动发送功能未选中,停止自动发送
+                numericUpDown1.Enabled = true;
+                timer2.Stop();
             }
         }
     }

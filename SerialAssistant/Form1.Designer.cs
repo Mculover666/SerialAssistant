@@ -39,7 +39,6 @@ namespace SerialAssistant
             this.panel10 = new System.Windows.Forms.Panel();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.button3 = new System.Windows.Forms.Button();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -75,6 +74,8 @@ namespace SerialAssistant
             this.label9 = new System.Windows.Forms.Label();
             this.comboBox7 = new System.Windows.Forms.ComboBox();
             this.button6 = new System.Windows.Forms.Button();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             this.panel9.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -89,6 +90,7 @@ namespace SerialAssistant
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -190,15 +192,6 @@ namespace SerialAssistant
             this.panel2.Size = new System.Drawing.Size(214, 534);
             this.panel2.TabIndex = 1;
             // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(118, 63);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(51, 20);
-            this.comboBox6.TabIndex = 11;
-            this.comboBox6.Text = "1000";
-            // 
             // button3
             // 
             this.button3.Location = new System.Drawing.Point(20, 118);
@@ -220,6 +213,7 @@ namespace SerialAssistant
             this.checkBox4.TabIndex = 5;
             this.checkBox4.Text = "自动发送";
             this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.CheckedChanged += new System.EventHandler(this.checkBox4_CheckedChanged);
             // 
             // checkBox2
             // 
@@ -540,6 +534,7 @@ namespace SerialAssistant
             // groupBox3
             // 
             this.groupBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox3.Controls.Add(this.numericUpDown1);
             this.groupBox3.Controls.Add(this.button6);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.radioButton3);
@@ -547,7 +542,6 @@ namespace SerialAssistant
             this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.Controls.Add(this.checkBox4);
             this.groupBox3.Controls.Add(this.button3);
-            this.groupBox3.Controls.Add(this.comboBox6);
             this.groupBox3.Location = new System.Drawing.Point(12, 375);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(196, 153);
@@ -558,7 +552,7 @@ namespace SerialAssistant
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(173, 68);
+            this.label9.Location = new System.Drawing.Point(172, 66);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(17, 12);
             this.label9.TabIndex = 13;
@@ -584,6 +578,37 @@ namespace SerialAssistant
             this.button6.Text = "清空发送";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // timer2
+            // 
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Increment = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Location = new System.Drawing.Point(117, 63);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            10000000,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(49, 21);
+            this.numericUpDown1.TabIndex = 15;
+            this.numericUpDown1.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
@@ -620,6 +645,7 @@ namespace SerialAssistant
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -640,7 +666,6 @@ namespace SerialAssistant
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.ComboBox comboBox6;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.CheckBox checkBox4;
         private System.Windows.Forms.RadioButton radioButton4;
@@ -671,6 +696,8 @@ namespace SerialAssistant
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBox7;
         private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
