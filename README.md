@@ -4,7 +4,7 @@
 
 本项目是使用C# + WinForm框架编写的串口助手。
 
-![](./doc/image/ui.png)
+![](doc/image/ui.png)
 
 目前版本为2.0.0版本，拥有以下功能：
 
