@@ -402,6 +402,7 @@ namespace SerialAssistant
                 comboBox3.Enabled = true;
                 comboBox4.Enabled = true;
                 comboBox5.Enabled = true;
+                checkBox2.Enabled = false;
             }
         }
 
