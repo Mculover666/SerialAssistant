@@ -152,7 +152,7 @@ namespace SerialAssistant
                     //串口已经处于打开状态
 
                     serialPort1.Close();    //关闭串口
-                    button1.Text = "打开串口";
+                    button1.BackgroundImage = global::SerialAssistant.Properties.Resources.connect;
                     comboBox1.Enabled = true;
                     comboBox2.Enabled = true;
                     comboBox3.Enabled = true;
@@ -204,7 +204,7 @@ namespace SerialAssistant
 
                     //打开串口，设置状态
                     serialPort1.Open();
-                    button1.Text = "关闭串口";
+                    button1.BackgroundImage = global::SerialAssistant.Properties.Resources.disconnect;
                     label6.Text = "串口已打开!";
                     label6.ForeColor = Color.Green;
 
@@ -223,7 +223,7 @@ namespace SerialAssistant
 
                 //响铃并显示异常给用户
                 System.Media.SystemSounds.Beep.Play();
-                button1.Text = "打开串口";
+                button1.BackgroundImage = global::SerialAssistant.Properties.Resources.connect;
                 MessageBox.Show(ex.Message);
                 comboBox1.Enabled = true;
                 comboBox2.Enabled = true;
@@ -574,6 +574,47 @@ namespace SerialAssistant
                 numericUpDown1.Enabled = true;
                 timer2.Stop();
             }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            string targetUrl = "http://www.mculover666.cn";
+
+            try
+            {
+                //尝试用edge打开
+                System.Diagnostics.Process.Start("msedge.exe", targetUrl);
+                return;
+            }
+            catch (Exception)
+            {
+                //edge它不香吗
+            }
+
+            try
+            {
+                //好吧，那用chrome
+                System.Diagnostics.Process.Start("chrome.exe", targetUrl);
+                return;
+            }
+            catch
+            {
+                //chrome不好用吗
+            }
+            try
+            {
+                //IE也不是不可以
+                System.Diagnostics.Process.Start("iexplore.exe", targetUrl);
+                return;
+            }
+
+            catch
+            {
+                //没救了，砸了吧！
+            }
+
+            /* 没办法了，提示一下 */
+            MessageBox.Show("本软件开源免费，作者:Mculover666!");
         }
     }
 }

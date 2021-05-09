@@ -117,11 +117,18 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="doge.ico" />
+    <None Include="Resources\about.png" />
+    <None Include="Resources\clear_send.png" />
+    <None Include="Resources\upload.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\clear_recv.png" />
+    <None Include="Resources\send_icon.png" />
+    <None Include="Resources\disconnect.png" />
+    <None Include="Resources\connect.png" />
+    <None Include="Resources\Image1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
