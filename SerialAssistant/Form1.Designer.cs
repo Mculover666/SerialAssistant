@@ -109,9 +109,9 @@ namespace SerialAssistant
             this.panel1.Controls.Add(this.panel9);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel10);
-            this.panel1.Location = new System.Drawing.Point(0, 569);
+            this.panel1.Location = new System.Drawing.Point(0, 534);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(914, 18);
+            this.panel1.Size = new System.Drawing.Size(806, 18);
             this.panel1.TabIndex = 0;
             // 
             // panel9
@@ -144,14 +144,14 @@ namespace SerialAssistant
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(837, 18);
+            this.panel8.Size = new System.Drawing.Size(729, 18);
             this.panel8.TabIndex = 1;
             // 
             // label8
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(306, 3);
+            this.label8.Location = new System.Drawing.Point(252, 3);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(83, 12);
             this.label8.TabIndex = 1;
@@ -161,7 +161,7 @@ namespace SerialAssistant
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(493, 3);
+            this.label7.Location = new System.Drawing.Point(439, 3);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(83, 12);
             this.label7.TabIndex = 0;
@@ -171,7 +171,7 @@ namespace SerialAssistant
             // 
             this.panel10.Controls.Add(this.linkLabel1);
             this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel10.Location = new System.Drawing.Point(837, 0);
+            this.panel10.Location = new System.Drawing.Point(729, 0);
             this.panel10.Name = "panel10";
             this.panel10.Size = new System.Drawing.Size(77, 18);
             this.panel10.TabIndex = 3;
@@ -199,7 +199,7 @@ namespace SerialAssistant
             this.panel2.Controls.Add(this.groupBox3);
             this.panel2.Location = new System.Drawing.Point(0, 36);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(214, 527);
+            this.panel2.Size = new System.Drawing.Size(214, 492);
             this.panel2.TabIndex = 1;
             // 
             // groupBox1
@@ -413,7 +413,7 @@ namespace SerialAssistant
             this.groupBox3.Controls.Add(this.radioButton4);
             this.groupBox3.Controls.Add(this.checkBox2);
             this.groupBox3.Controls.Add(this.checkBox4);
-            this.groupBox3.Location = new System.Drawing.Point(15, 432);
+            this.groupBox3.Location = new System.Drawing.Point(15, 397);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(196, 95);
             this.groupBox3.TabIndex = 5;
@@ -512,7 +512,7 @@ namespace SerialAssistant
             this.panel3.Controls.Add(this.splitContainer1);
             this.panel3.Location = new System.Drawing.Point(214, 51);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(700, 518);
+            this.panel3.Size = new System.Drawing.Size(592, 483);
             this.panel3.TabIndex = 2;
             // 
             // splitContainer1
@@ -533,8 +533,8 @@ namespace SerialAssistant
             // 
             this.splitContainer1.Panel2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Panel2.Controls.Add(this.panel7);
-            this.splitContainer1.Size = new System.Drawing.Size(700, 518);
-            this.splitContainer1.SplitterDistance = 368;
+            this.splitContainer1.Size = new System.Drawing.Size(592, 483);
+            this.splitContainer1.SplitterDistance = 343;
             this.splitContainer1.TabIndex = 0;
             // 
             // textBox1
@@ -548,7 +548,7 @@ namespace SerialAssistant
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(691, 362);
+            this.textBox1.Size = new System.Drawing.Size(583, 337);
             this.textBox1.TabIndex = 0;
             // 
             // panel7
@@ -560,7 +560,7 @@ namespace SerialAssistant
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(0, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(700, 146);
+            this.panel7.Size = new System.Drawing.Size(592, 136);
             this.panel7.TabIndex = 0;
             // 
             // comboBox7
@@ -568,9 +568,9 @@ namespace SerialAssistant
             this.comboBox7.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(6, 120);
+            this.comboBox7.Location = new System.Drawing.Point(6, 110);
             this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(691, 20);
+            this.comboBox7.Size = new System.Drawing.Size(583, 20);
             this.comboBox7.TabIndex = 1;
             this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
@@ -586,7 +586,7 @@ namespace SerialAssistant
             this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.Control;
             this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
             this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button5.Location = new System.Drawing.Point(643, 41);
+            this.button5.Location = new System.Drawing.Point(535, 36);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(40, 40);
             this.button5.TabIndex = 0;
@@ -603,7 +603,7 @@ namespace SerialAssistant
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(617, 108);
+            this.textBox2.Size = new System.Drawing.Size(509, 98);
             this.textBox2.TabIndex = 0;
             // 
             // timer1
@@ -631,7 +631,7 @@ namespace SerialAssistant
             this.panel4.Controls.Add(this.button2);
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(914, 45);
+            this.panel4.Size = new System.Drawing.Size(806, 45);
             this.panel4.TabIndex = 3;
             // 
             // button7
@@ -662,7 +662,7 @@ namespace SerialAssistant
             this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(866, 6);
+            this.button1.Location = new System.Drawing.Point(758, 6);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(36, 36);
             this.button1.TabIndex = 10;
@@ -746,7 +746,7 @@ namespace SerialAssistant
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(914, 587);
+            this.ClientSize = new System.Drawing.Size(806, 552);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
