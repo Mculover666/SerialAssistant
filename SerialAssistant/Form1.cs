@@ -420,10 +420,10 @@ namespace SerialAssistant
         {
             DateTime time = new DateTime();
             String fileName;
+            string foldPath;
 
             /* 获取当前接收区内容 */
             String recv_data = textBox1.Text;
-
             if (recv_data.Equals(""))
             {
                 MessageBox.Show("接收数据为空，无需保存！");
@@ -433,7 +433,20 @@ namespace SerialAssistant
             /* 获取当前时间，用于填充文件名 */
             //eg.log_2021_05_08_10_13_31.txt
             time = System.DateTime.Now;
-            fileName = "log" + "_" + time.ToString("yyyy_MM_dd_HH_mm_ss") + ".txt";
+
+            /* 弹出文件夹选择框供用户选择 */
+            FolderBrowserDialog dialog = new FolderBrowserDialog();
+            dialog.Description = "请选择日志文件存储路径";
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                foldPath = dialog.SelectedPath;
+            }
+            else
+            {
+                return;
+            }
+
+            fileName = foldPath + "\\" + "log" + "_" + time.ToString("yyyy_MM_dd_HH_mm_ss") + ".txt";
 
             try
             {

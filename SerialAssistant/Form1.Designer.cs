@@ -183,10 +183,10 @@ namespace SerialAssistant
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Location = new System.Drawing.Point(18, 3);
             this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(47, 12);
+            this.linkLabel1.Size = new System.Drawing.Size(41, 12);
             this.linkLabel1.TabIndex = 2;
             this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "v2.1.0 ";
+            this.linkLabel1.Text = "v2.1.1";
             this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
             // 
             // panel2
