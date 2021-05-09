@@ -18,6 +18,7 @@ namespace SerialAssistant
         private long send_count = 0;    //发送字节计数
         private StringBuilder sb = new StringBuilder();    //为了避免在接收处理函数中反复调用，依然声明为一个全局变量
         private DateTime current_time = new DateTime();    //为了避免在接收处理函数中反复调用，依然声明为一个全局变量
+        private bool is_need_time = true; 
 
         public Form1()
         {
@@ -245,6 +246,13 @@ namespace SerialAssistant
         {
             /* 串口接收事件处理 */
 
+            /* 刷新定时器 */
+            if (checkBox3.Checked)
+            {
+                timer3.Interval = (int)numericUpDown2.Value;
+            }
+
+
             int num = serialPort1.BytesToRead;      //获取接收缓冲区中的字节数
             byte[] received_buf = new byte[num];    //声明一个大小为num的字节数据用于存放读出的byte型数据
 
@@ -261,7 +269,6 @@ namespace SerialAssistant
                 {
                     sb.Append(b.ToString("X2") + ' ');    //将byte型数据转化为2位16进制文本显示，并用空格隔开
                 }
-
             }
             else
             {
@@ -273,17 +280,19 @@ namespace SerialAssistant
                 //因为要访问UI资源，所以需要使用invoke方式同步ui
                 Invoke((EventHandler)(delegate
                 {
-                    if (checkBox3.Checked)
+                    if (is_need_time && checkBox3.Checked)
                     {
-                        //显示时间
+                        /* 需要加时间戳 */
+                        is_need_time = false;   //清空标志位
                         current_time = System.DateTime.Now;     //获取当前时间
-                        textBox1.AppendText("[" + current_time.ToString("HH:mm:ss") + "]" + sb.ToString());
+                        textBox1.AppendText("\r\n[" + current_time.ToString("HH:mm:ss") + "]" + sb.ToString());
                     }
                     else
                     {
-                        //不显示时间 
+                        /* 不需要时间戳 */
                         textBox1.AppendText(sb.ToString());
                     }
+
                     label8.Text = "接收：" + receive_count.ToString() + " Bytes";
                 }
                   )
@@ -615,6 +624,31 @@ namespace SerialAssistant
 
             /* 没办法了，提示一下 */
             MessageBox.Show("本软件开源免费，作者:Mculover666!");
+        }
+
+        private void checkBox3_CheckedChanged(object sender, EventArgs e)
+        {
+            if (checkBox3.Checked)
+            {
+                /* 启动定时器 */
+                numericUpDown2.Enabled = false;
+                timer3.Interval = (int)numericUpDown2.Value;
+                timer3.Start();
+            }
+            else
+            {
+                /* 取消时间戳，停止定时器 */
+                numericUpDown2.Enabled = true;
+                timer3.Stop();
+            }
+
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            /* 设置时间内未收到数据，分包，加入时间戳 */
+            is_need_time = true;
+
         }
     }
 }
