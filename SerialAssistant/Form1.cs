@@ -380,7 +380,7 @@ namespace SerialAssistant
                     }
 
                     send_count += num;      //计数变量累加
-                    label8.Text = "Tx:" + send_count.ToString() + "Bytes";   //刷新界面
+                    label7.Text = "发送：" + send_count.ToString() + " Bytes";   //刷新界面
 
                     /* 记录发送数据 */
                     //先检查当前是否存在该项
